@@ -3,7 +3,7 @@ package erwerner.rubikscube.cube;
 import java.util.Arrays;
 import java.util.List;
 
-import erwerner.rubikscube.datatypes.Color;
+import erwerner.rubikscube.datatypes.StoneColor;
 import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.StoneSlot;
 import junit.framework.TestCase;
@@ -25,8 +25,8 @@ public class CubeGridTest extends TestCase {
 		Dim lDim1 = Dim.getDim(1);
 		Dim lDim3 = Dim.getDim(3);
 
-		assertEquals(lStone000.getStone().getColor(lDim1), Color.getColor(lDim1));
-		assertEquals(lStone222.getStone().getColor(lDim3), Color.getColor(lDim3));
+		assertEquals(lStone000.getStone().getColor(lDim1), StoneColor.getColor(lDim1));
+		assertEquals(lStone222.getStone().getColor(lDim3), StoneColor.getColor(lDim3));
 
 		try {
 			mCut.getSlot(1, 1, 1);
@@ -68,5 +68,15 @@ public class CubeGridTest extends TestCase {
 		assertTrue(lAct.contains(mCut.getSlot(2, 0, 2)));
 		assertTrue(lAct.contains(mCut.getSlot(1, 0, 0)));
 		assertTrue(lAct.contains(mCut.getSlot(1, 0, 1)));
-	} 
+	}
+
+	public void testGetSlice3inv() {
+		Dim lDim = Dim.getDim(-3);
+		Slice lSlice = mCut.buildSlice(lDim);
+		List<StoneSlot> lAct = Arrays.asList(lSlice.getSlots());
+
+		assertEquals(mCut.getSlot(0, 0, 0), lAct.get(0));
+		assertEquals(mCut.getSlot(1, 1, 0), lAct.get(4));
+		assertEquals(mCut.getSlot(2, 2, 0), lAct.get(8));
+	}
 }

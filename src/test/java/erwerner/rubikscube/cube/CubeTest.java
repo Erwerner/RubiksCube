@@ -1,6 +1,6 @@
 package erwerner.rubikscube.cube;
 
-import erwerner.rubikscube.datatypes.Color;
+import erwerner.rubikscube.datatypes.StoneColor;
 import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.Stone;
 import junit.framework.TestCase;
@@ -14,7 +14,7 @@ public class CubeTest extends TestCase {
 	public void testTurn() {
 		mCut.turn(Dim.DOWN);
 		Stone lAct = mCut.mGrid.getSlot(0, 0, 0).getStone();
-		Color lExpCol = Color.getColor(Dim.LEFT);
+		StoneColor lExpCol = StoneColor.getColor(Dim.LEFT);
 		assertEquals( lExpCol, lAct.getColor(Dim.FRONT) );
 	}
 	public void testIsSolved() {
@@ -27,9 +27,9 @@ public class CubeTest extends TestCase {
 		assertTrue( mCut.isSolved() );
 	}
 	public void testGetColorsFromDim() {
-		Color[] lColors = mCut.getColorsFromDim(Dim.UP);
-		for(Color iColor : lColors) {
-			assertEquals( Color.getColor(Dim.UP), iColor );
+		StoneColor[] lColors = mCut.getColorsFromDim(Dim.UP);
+		for(StoneColor iColor : lColors) {
+			assertEquals( StoneColor.getColor(Dim.UP), iColor );
 		}
 	}
 }
