@@ -37,7 +37,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>erwerner.rubikscube.start</mainClass>
+							<mainClass>erwerner.rubikscube.StartCube</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
