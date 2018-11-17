@@ -18,8 +18,36 @@ public class StartCube {
 			e.printStackTrace();
 		}
 		
-		iContTurn lControll = lCube;
-//		lControll.turn(Dim.UP);
+		run(lCube); 
+	}
+	private static void run(Cube lCube) {
+		iContTurn lControll = lCube; 
+
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+		lControll.turn(Dim.RIGHT);
+		hold();
+		lControll.turn(Dim.RIGHT);
+		hold();
+		lControll.turn(Dim.LEFT);
+		hold();
+		lControll.turn(Dim.LEFT); 
+		hold();
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.BACK);
+		hold();
+		lControll.turn(Dim.BACK);
+		
+
 		lControll.turn(Dim.UP);
 		hold();
 		lControll.turn(Dim.UP);
@@ -43,20 +71,10 @@ public class StartCube {
 		lControll.turn(Dim.LEFT);
 		hold();
 		lControll.turn(Dim.LEFT);
-//		for (int i = 1; i <= 3; i++) { 
-//			lControll.turn(Dim.getDim(i)); 
-//			hold();
-//		}
-//		for (int i = 3; i >= 1; i--) {
-//			for (int k = 0; k <= 2; k++) { 
-//				lControll.turn(Dim.getDim(i));
-//				hold();
-//			}
-//		}
 	}
 	public static void hold() { 
 		try {
-			Thread.sleep(300);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
