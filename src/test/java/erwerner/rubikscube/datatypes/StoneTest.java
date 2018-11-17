@@ -64,7 +64,25 @@ public class StoneTest extends TestCase {
 		assertColorOnCUT( StoneColor.getColor(-3),Dim.getDim(2)); 
 		assertColorOnCUT( StoneColor.getColor(-2),Dim.getDim(-3));
 	}
+public void testTurn3Dims() {
+	StoneColor lExp = mCut.getColor(Dim.UP);
+	mCut.turnOnDim(Dim.FRONT);
+	assertColorOnCUT(lExp, Dim.LEFT);
+	mCut.turnOnDim(Dim.UP);
+	assertColorOnCUT(lExp, Dim.FRONT);
+	mCut.turnOnDim(Dim.RIGHT);
+	assertColorOnCUT(lExp, Dim.UP);
+	
 
+	mCut.turnOnDim(Dim.RIGHT);
+	assertColorOnCUT(lExp, Dim.BACK);
+	mCut.turnOnDim(Dim.RIGHT);
+	assertColorOnCUT(lExp, Dim.DOWN);
+	mCut.turnOnDim(Dim.BACK);
+	assertColorOnCUT(lExp, Dim.RIGHT);
+	mCut.turnOnDim(Dim.DOWN);
+	assertColorOnCUT(lExp, Dim.BACK);
+}
 	
 	public void testGetAffectedOnTurn() {
 		Dim lTurn = Dim.getDim(2);

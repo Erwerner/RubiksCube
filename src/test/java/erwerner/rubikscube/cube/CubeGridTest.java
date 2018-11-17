@@ -76,7 +76,8 @@ public class CubeGridTest extends TestCase {
 		List<StoneSlot> lAct = Arrays.asList(lSlice.getSlots());
 
 		assertEquals(mCut.getSlot(0, 0, 0), lAct.get(0));
-		assertEquals(mCut.getSlot(1, 1, 0), lAct.get(4));
+		assertEquals(mCut.getSlot(1, 0, 0), lAct.get(1));
+		assertEquals(mCut.getSlot(1, 1, 0), lAct.get(4)); 
 		assertEquals(mCut.getSlot(2, 2, 0), lAct.get(8));
 	}
 }
