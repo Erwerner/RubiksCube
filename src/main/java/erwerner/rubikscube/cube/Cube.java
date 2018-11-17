@@ -1,6 +1,6 @@
 package erwerner.rubikscube.cube;
 
-import erwerner.rubikscube.datatypes.Color;
+import erwerner.rubikscube.datatypes.StoneColor;
 import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.Stone;
 import erwerner.rubikscube.datatypes.StoneSlot;
@@ -32,8 +32,8 @@ public class Cube extends Model implements iContTurn, iPresentGrid{
 					if(iX==1 && iY==1 && iZ==1)continue;
 					Stone lStone = mGrid.getSlot(iX, iY, iZ).getStone();
 					for(Dim iDim : Dim.getAll()) {
-						Color lColStone = lStone.getColor(iDim);
-						Color lColDim = Color.getColor(iDim);
+						StoneColor lColStone = lStone.getColor(iDim);
+						StoneColor lColDim = StoneColor.getColor(iDim);
 						if(lColStone!=lColDim)return false;
 					}
 				}
@@ -49,11 +49,11 @@ public class Cube extends Model implements iContTurn, iPresentGrid{
 	}
 
 	@Override
-	public Color[] getColorsFromDim(Dim pDim) { 
+	public StoneColor[] getColorsFromDim(Dim pDim) { 
 		Slice lSLice = mGrid.buildSlice(pDim);
 		int iCount =0;
 		
-		Color[] rColor = new Color[9];
+		StoneColor[] rColor = new StoneColor[9];
 		for(StoneSlot iSlot : lSLice.getSlots()) { 
 			rColor[iCount++] = iSlot.getStone().getColor(pDim);
 		}

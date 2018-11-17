@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public final class Stone {
 
-	Color[] mSurfaceColor = { Color.ORANGE, Color.BLUE, Color.RED, Color.BLANK, Color.WHITE, Color.GREEN,
-			Color.YELLOW };
-	public Color getColor(Dim pDim) {
+	StoneColor[] mSurfaceColor = { StoneColor.ORANGE, StoneColor.BLUE, StoneColor.RED, StoneColor.BLANK, StoneColor.WHITE, StoneColor.GREEN,
+			StoneColor.YELLOW };
+	public StoneColor getColor(Dim pDim) {
 		int lSurface = 3 + pDim.getInt();
 		return mSurfaceColor[lSurface];
 	}
-	public void setColor(Dim pDim, Color pColor) {
+	public void setColor(Dim pDim, StoneColor pColor) {
 		mSurfaceColor[pDim.getInt()+3] = pColor;
 	}
 //	public void setColor(Dim pDimAffected, Dim pDimSource) {
@@ -28,10 +28,10 @@ public final class Stone {
 		Dim lMinDim = lAffectedDim.get(2);
 		Dim lMaxDim = lAffectedDim.get(3);
 
-		Color lColMinDim = getColor(lMinDim);
-		Color lColMinDimInv = getColor(lMinDim.invert());
-		Color lColMaxDim = getColor(lMaxDim);
-		Color lColMaxDimInv = getColor(lMaxDim.invert());
+		StoneColor lColMinDim = getColor(lMinDim);
+		StoneColor lColMinDimInv = getColor(lMinDim.invert());
+		StoneColor lColMaxDim = getColor(lMaxDim);
+		StoneColor lColMaxDimInv = getColor(lMaxDim.invert());
 		
 		
 		setColor(lMaxDim, lColMinDim );

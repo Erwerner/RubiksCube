@@ -2,7 +2,7 @@ package erwerner.rubikscube.datatypes;
 
 import java.util.List;
 
-import erwerner.rubikscube.datatypes.Color;
+import erwerner.rubikscube.datatypes.StoneColor;
 import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.Stone;
 import junit.framework.TestCase;
@@ -18,8 +18,8 @@ public class StoneTest extends TestCase {
 
 	public void testInit() {
 		for (Dim iDim : Dim.getAll()) {
-			Color lExp = Color.getColor(iDim);
-			Color lAct = mCut.getColor(iDim);
+			StoneColor lExp = StoneColor.getColor(iDim);
+			StoneColor lAct = mCut.getColor(iDim);
 			assertEquals(lExp, lAct);
 		}
 	}
@@ -27,9 +27,9 @@ public class StoneTest extends TestCase {
 	public void testSetColor() {
 		Dim lDimAffected = Dim.getDim(1);
 		Dim lDimOther = Dim.getDim(2);
-		Color lExpStart = Color.getColor(lDimAffected);
-		Color lExpEnd   = Color.getColor(lDimOther);
-		Color lAct;
+		StoneColor lExpStart = StoneColor.getColor(lDimAffected);
+		StoneColor lExpEnd   = StoneColor.getColor(lDimOther);
+		StoneColor lAct;
 		
 		lAct = mCut.getColor(lDimAffected);
 		assertEquals( lExpStart, lAct);
@@ -44,25 +44,25 @@ public class StoneTest extends TestCase {
 		Dim lTurn = Dim.getDim(2);
 		
 		mCut.turnOnDim(lTurn);
-		assertColorOnCUT(Color.getColor(lTurn),lTurn);
-		assertColorOnCUT(Color.getColor(lTurn.invert()),lTurn.invert());
+		assertColorOnCUT(StoneColor.getColor(lTurn),lTurn);
+		assertColorOnCUT(StoneColor.getColor(lTurn.invert()),lTurn.invert());
 
-		assertColorOnCUT( Color.getColor(1),Dim.getDim(3));
-		assertColorOnCUT( Color.getColor(3),Dim.getDim(-1));
-		assertColorOnCUT( Color.getColor(-1),Dim.getDim(-3)); 
-		assertColorOnCUT( Color.getColor(-3),Dim.getDim(1));
+		assertColorOnCUT( StoneColor.getColor(1),Dim.getDim(3));
+		assertColorOnCUT( StoneColor.getColor(3),Dim.getDim(-1));
+		assertColorOnCUT( StoneColor.getColor(-1),Dim.getDim(-3)); 
+		assertColorOnCUT( StoneColor.getColor(-3),Dim.getDim(1));
 	}
 	public void testTurnOnDim1() {
 		Dim lTurn = Dim.getDim(1);
 		
 		mCut.turnOnDim(lTurn);
-		assertColorOnCUT(Color.getColor(lTurn),lTurn);
-		assertColorOnCUT(Color.getColor(lTurn.invert()),lTurn.invert());
+		assertColorOnCUT(StoneColor.getColor(lTurn),lTurn);
+		assertColorOnCUT(StoneColor.getColor(lTurn.invert()),lTurn.invert());
 
-		assertColorOnCUT( Color.getColor(2),Dim.getDim(3));
-		assertColorOnCUT( Color.getColor(3),Dim.getDim(-2));
-		assertColorOnCUT( Color.getColor(-3),Dim.getDim(2)); 
-		assertColorOnCUT( Color.getColor(-2),Dim.getDim(-3));
+		assertColorOnCUT( StoneColor.getColor(2),Dim.getDim(3));
+		assertColorOnCUT( StoneColor.getColor(3),Dim.getDim(-2));
+		assertColorOnCUT( StoneColor.getColor(-3),Dim.getDim(2)); 
+		assertColorOnCUT( StoneColor.getColor(-2),Dim.getDim(-3));
 	}
 
 	
@@ -82,7 +82,7 @@ public class StoneTest extends TestCase {
 		assertEquals(Dim.getDim(-1), lAct.get(1));
 		assertEquals(Dim.getDim(-3), lAct.get(0));
 	}
-	private void assertColorOnCUT(Color lExpColor,Dim lCutDim) {
+	private void assertColorOnCUT(StoneColor lExpColor,Dim lCutDim) {
 		assertEquals( lExpColor , mCut.getColor(lCutDim) );
 	}
 }
