@@ -24,7 +24,7 @@ public class ViewConsoleGrid extends View {
 		}
 
 		int iCount =0;
-		for(Dim iDim : Dim.getAll()) {
+		for(Dim iDim : Dim.values()) {
 			for(StoneColor iColor : mGrid.getColorsFromDim(iDim)) {
 				if(iCount++ % 3 == 0)System.out.println("");
 				System.out.print(iColor);

@@ -31,7 +31,7 @@ public class Cube extends Model implements iContTurn, iPresentGrid{
 				for (int iZ = 0; iZ <= 2; iZ++) { 
 					if(iX==1 && iY==1 && iZ==1)continue;
 					Stone lStone = mGrid.getSlot(iX, iY, iZ).getStone();
-					for(Dim iDim : Dim.getAll()) {
+					for(Dim iDim : Dim.values()) {
 						StoneColor lColStone = lStone.getColor(iDim);
 						StoneColor lColDim = StoneColor.getColor(iDim);
 						if(lColStone!=lColDim)return false;

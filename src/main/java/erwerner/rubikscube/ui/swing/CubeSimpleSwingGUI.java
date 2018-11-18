@@ -55,7 +55,7 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 
 		JPanel lCubePanel = new JPanel();
 		lCubePanel.setLayout(new GridLayout(3, 4));
-		for (Dim iDim : Dim.getAll()) {
+		for (Dim iDim : Dim.values()) {
 			mSlicePanel[iDim.getInt() + 3] = new SlicePanel(iDim);
 			mSlicePanel[iDim.getInt() + 3].fillColors(mGrid);
 		}
@@ -79,7 +79,7 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 
 		JPanel lButtonPanel = new JPanel();
 		lButtonPanel.setLayout(new GridLayout(6, 0));
-		for (Dim iDim : Dim.getAll()) {
+		for (Dim iDim : Dim.values()) {
 			SliceButton lButton = new SliceButton(iDim);
 			 int[] lRGB = StoneColor.getColor(iDim).getRGB(); 
 			lButton.addActionListener(this);
@@ -115,7 +115,7 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 	@Override
 	public void update() {
 		setSolved();
-		for (Dim iDim : Dim.getAll()) {
+		for (Dim iDim : Dim.values()) {
 			mSlicePanel[iDim.getInt() + 3].fillColors(mGrid);
 		}
 		mFrame.repaint();
