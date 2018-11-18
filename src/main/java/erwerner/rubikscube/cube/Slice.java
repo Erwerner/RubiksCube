@@ -7,10 +7,29 @@ import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.Stone;
 import erwerner.rubikscube.datatypes.StoneSlot;
 
+/**
+ * Ein Slice bildet ein Array aus allen 9 Slots einer Würfelseite.
+ * Er wird zur Darstellung im GUI und Drehung einer Seite verwendet.
+ * 
+ * @see Slot
+ * @see Dim
+ * @version 0.1
+ *
+ */
 public class Slice implements iSlice{
 	StoneSlot mSlots[] = new StoneSlot[9];
 
-	public Slice(StoneSlot[] pSlots) { 
+	/**
+	 * 
+	 * @param pSlots Die 9 Slots einer Würfelseite in der Reihenfolge:<br>
+	 * 1. Koordinate aufsteigend, dann 2. Koordinate aufsteigend.<br>
+	 * Die Seite der Dimension LEFT übergibt folgende Slots aus dem Grid:<br>
+	 * [0,0,0],[1,0,0],[2,0,0],[0,0,1][1,0,1]...[2,0,2]
+	 * 
+	 * @see Dim
+	 * @see Slot
+	 */
+	protected Slice(StoneSlot[] pSlots) { 
 		mSlots = pSlots;
 	}
 
