@@ -1,8 +1,8 @@
 package erwerner.rubikscube.cube;
 
-import erwerner.rubikscube.datatypes.StoneColor;
 import erwerner.rubikscube.datatypes.Dim;
 import erwerner.rubikscube.datatypes.Stone;
+import erwerner.rubikscube.datatypes.StoneColor;
 import junit.framework.TestCase;
 
 public class CubeTest extends TestCase {
@@ -12,10 +12,18 @@ public class CubeTest extends TestCase {
 		mCut = new Cube();
 	}
 	public void testTurn() {
-		mCut.turn(Dim.DOWN);
-		Stone lAct = mCut.mGrid.getSlot(0, 0, 0).getStone();
-		StoneColor lExpCol = StoneColor.getColor(Dim.LEFT);
-		assertEquals( lExpCol, lAct.getColor(Dim.FRONT) );
+		
+		Stone lStone020 = mCut.mGrid.getSlot(0, 2, 0).getStone();
+		assertEquals( StoneColor.ORANGE, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.FRONT) );
+		assertEquals( StoneColor.RED, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.LEFT) );
+		assertEquals( StoneColor.BLUE, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.DOWN) );
+		mCut.turn(Dim.FRONT);
+		assertEquals( lStone020, mCut.mGrid.getSlot(0, 0, 0).getStone());
+		assertEquals( StoneColor.ORANGE, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.FRONT) );
+		assertEquals( StoneColor.GREEN, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.LEFT) );
+		assertEquals( StoneColor.RED, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.DOWN) );
+		mCut.turn(Dim.LEFT); 
+		assertEquals( StoneColor.BLUE, mCut.mGrid.getSlot(0, 0, 0).getStone().getColor(Dim.FRONT) ); 
 	}
 	public void testIsSolved() {
 		assertTrue( mCut.isSolved() );

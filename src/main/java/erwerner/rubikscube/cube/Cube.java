@@ -60,9 +60,9 @@ public class Cube extends Model implements iContTurn, iPresentGrid{
 		return rColor ;
 	}
 
-//	@Override
-//	public StoneSlot[][][] getAllSlots() {  
-//		return mGrid.getSlots();
-//	}
+	@Override
+	public StoneSlot[][][] getAllSlots() {  
+		return mGrid.getSlots();
+	}
 
 }

@@ -9,7 +9,7 @@ public class SliceButton extends JButton {
 	private Dim mDim;
 
 	public SliceButton(Dim pDim) {
-		super(pDim.toString());
+		super("Turn " + pDim.toString());
 		mDim = pDim;
 		
 	}

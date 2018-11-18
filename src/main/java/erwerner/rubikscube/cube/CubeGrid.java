@@ -27,9 +27,9 @@ public class CubeGrid implements iCubeGrid {
 
 		StoneSlot[] lSlots = new StoneSlot[9];
 		int lCount = 0;
-		for (int iX = 0; iX <= 2; iX++) {
+		for (int iZ = 0; iZ <= 2; iZ++) {
 			for (int iY = 0; iY <= 2; iY++) {
-				for (int iZ = 0; iZ <= 2; iZ++) {
+				for (int iX = 0; iX <= 2; iX++) {
 					int lX = iX;
 					int lY = iY;
 					int lZ = iZ;
@@ -69,7 +69,7 @@ public class CubeGrid implements iCubeGrid {
 		return new Slice(lSlots);
 	}
 
-	public StoneSlot[][][] getSlots() { 
+	public StoneSlot[][][] getSlots() {
 		return mSlots;
 	}
 
