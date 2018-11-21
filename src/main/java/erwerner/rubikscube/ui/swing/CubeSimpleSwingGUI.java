@@ -107,7 +107,7 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 			mSolved.setText(">> SOLVED <<");
 			mTextPanel.setBackground(new Color(100, 255, 100));
 		}else { 
-			mSolved.setText("try to solve it!");
+			mSolved.setText("<< not solved >>");
 			mTextPanel.setBackground(new Color(255, 200, 150));
 		} 
 	}

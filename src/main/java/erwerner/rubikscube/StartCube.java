@@ -9,71 +9,49 @@ public class StartCube {
 
 	public static void main(String[] args) {
 		Cube lCube = new Cube();
-		new CubeSimpleSwingGUI( lCube );
+		new CubeSimpleSwingGUI(lCube);
 
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		run(lCube); 
-	}
-	private static void run(Cube lCube) {
-		iContTurn lControll = lCube; 
 
-		lControll.turn(Dim.UP);
-		hold();
-		lControll.turn(Dim.UP);
-		hold();
-		lControll.turn(Dim.DOWN);
-		hold();
-		lControll.turn(Dim.DOWN);
-		hold();
-		lControll.turn(Dim.RIGHT);
-		hold();
-		lControll.turn(Dim.RIGHT);
-		hold();
-		lControll.turn(Dim.LEFT);
-		hold();
-		lControll.turn(Dim.LEFT); 
-		hold();
-		lControll.turn(Dim.FRONT);
-		hold();
-		lControll.turn(Dim.FRONT);
-		hold();
-		lControll.turn(Dim.BACK);
-		hold();
-		lControll.turn(Dim.BACK);
-		
-
-		lControll.turn(Dim.UP);
-		hold();
-		lControll.turn(Dim.UP);
-		hold();
-		lControll.turn(Dim.DOWN);
-		hold();
-		lControll.turn(Dim.DOWN);
-		hold();
-		lControll.turn(Dim.FRONT);
-		hold();
-		lControll.turn(Dim.FRONT);
-		hold();
-		lControll.turn(Dim.BACK);
-		hold();
-		lControll.turn(Dim.BACK);
-		hold();
-		lControll.turn(Dim.RIGHT);
-		hold();
-		lControll.turn(Dim.RIGHT);
-		hold();
-		lControll.turn(Dim.LEFT);
-		hold();
-		lControll.turn(Dim.LEFT);
+		runDemoSequence(lCube);
 	}
-	public static void hold() { 
+
+	private static void runDemoSequence(Cube lCube) {
+		iContTurn lControll = lCube;
+
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.FRONT);
+		hold();
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.UP);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+		lControll.turn(Dim.DOWN);
+		hold();
+	}
+
+	public static void hold() {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
