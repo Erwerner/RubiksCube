@@ -6,8 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Path2D;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,6 +32,7 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 	private JFrame mFrame;
 	private SlicePanel[] mSlicePanel = new SlicePanel[7];
 	private JPanel mTextPanel; 
+	CubeView3D l3DModelPanel;
 
 	public CubeSimpleSwingGUI(Model pModel) {
 		super(pModel);
@@ -53,10 +54,10 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 		setSolved();
 		mFrame.add(mTextPanel, BorderLayout.NORTH);
 
-		JPanel lCubePanel = new JPanel();
+		JPanel lCubePanel = createPanel( BorderLayout.CENTER );
 		lCubePanel.setLayout(new GridLayout(3, 4));
 		for (Dim iDim : Dim.values()) {
-			mSlicePanel[iDim.getInt() + 3] = new SlicePanel(iDim);
+			mSlicePanel[iDim.getInt() + 3] = new SlicePanel(iDim,mGrid);
 			mSlicePanel[iDim.getInt() + 3].fillColors(mGrid);
 		}
 
@@ -75,7 +76,6 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 		fillBlankPanel(lCubePanel);
 		fillBlankPanel(lCubePanel);
 		
-		mFrame.add(lCubePanel, BorderLayout.CENTER);
 
 		JPanel lButtonPanel = new JPanel();
 		lButtonPanel.setLayout(new GridLayout(6, 0));
@@ -87,7 +87,18 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 		} 
 
 		mFrame.add(lButtonPanel, BorderLayout.WEST);
+		
+
+		l3DModelPanel = new CubeView3D(mGrid); 
+		mFrame.add(l3DModelPanel, BorderLayout.EAST);
+		
 		mFrame.setVisible(true);
+	}
+
+	private JPanel createPanel(String pLayout) {
+		JPanel lCubePanel = new JPanel(); 
+		mFrame.add(lCubePanel, pLayout);
+		return lCubePanel;
 	}
 
 	private void fillBlankPanel(JPanel lCubePanel) {
@@ -115,9 +126,6 @@ public class CubeSimpleSwingGUI extends View implements ActionListener {
 	@Override
 	public void update() {
 		setSolved();
-		for (Dim iDim : Dim.values()) {
-			mSlicePanel[iDim.getInt() + 3].fillColors(mGrid);
-		}
 		mFrame.repaint();
 	}
 
