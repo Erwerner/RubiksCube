@@ -34,8 +34,18 @@ public class SlicePanel extends JPanel {
 		}
 
 
-
 		JLabel lDimText = new JLabel(mDim.toString());
+
+		switch (pDim) {
+		case FRONT:
+		case LEFT:
+		case UP:
+			lDimText.setText(lDimText.getText() + " ↺ ");
+			break;
+
+		default:
+			lDimText.setText(lDimText.getText() + " ↻ ");
+		}
 		mColor[4].add(lDimText);
 
 		 

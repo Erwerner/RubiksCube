@@ -41,7 +41,7 @@ public final class Stone {
 	}
 	protected List<Dim> getAffectedOnTurn(Dim pTurn) {
 		List<Dim> rAffectedDim = new ArrayList<Dim>();
-		for(Dim iDim : Dim.getAll()) {
+		for(Dim iDim : Dim.values()) {
 			if(iDim.getInt() != pTurn.getInt() && iDim.getInt() != pTurn.invert().getInt()) {
 				rAffectedDim.add(iDim);
 			}

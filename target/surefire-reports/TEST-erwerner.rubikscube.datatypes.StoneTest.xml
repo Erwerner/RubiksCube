@@ -66,9 +66,9 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testGetAffectedOnTurn" time="0"/>
+  <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testInit" time="0.001"/>
   <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testSetColor" time="0"/>
-  <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testTurnOnDim2" time="0.001"/>
+  <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testTurnOnDim2" time="0"/>
   <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testTurnOnDim1" time="0"/>
   <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testTurn3Dims" time="0"/>
-  <testcase classname="erwerner.rubikscube.datatypes.StoneTest" name="testInit" time="0"/>
 </testsuite>

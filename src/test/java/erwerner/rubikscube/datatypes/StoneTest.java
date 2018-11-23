@@ -17,7 +17,7 @@ public class StoneTest extends TestCase {
 	}
 
 	public void testInit() {
-		for (Dim iDim : Dim.getAll()) {
+		for (Dim iDim : Dim.values()) {
 			StoneColor lExp = StoneColor.getColor(iDim);
 			StoneColor lAct = mCut.getColor(iDim);
 			assertEquals(lExp, lAct);

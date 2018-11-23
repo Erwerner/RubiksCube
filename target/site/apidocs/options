@@ -1,0 +1,24 @@
+-classpath
+'C:/Users/Win7/eclipse-workspace/RubiksCube/target/classes'
+-encoding
+'UTF-8'
+-private
+-sourcepath
+'C:/Users/Win7/eclipse-workspace/RubiksCube/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2018. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Win7/eclipse-workspace/RubiksCube/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'rubikscube 0.1 API'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' 'C:/Users/Win7/eclipse-workspace/RubiksCube/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'rubikscube 0.1 API'
