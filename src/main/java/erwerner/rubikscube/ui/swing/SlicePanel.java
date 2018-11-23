@@ -1,6 +1,7 @@
 package erwerner.rubikscube.ui.swing;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
@@ -17,8 +18,10 @@ public class SlicePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Dim mDim;
 	private JPanel[] mColor = new JPanel[9];
+	private iPresentGrid mGrid;
 
-	public SlicePanel(Dim pDim) {
+	public SlicePanel(Dim pDim,iPresentGrid pGrid) {
+		mGrid = pGrid;
 		mDim = pDim;
 		this.setSize(60, 60);
 		this.setLayout(new GridLayout(3, 3));
@@ -134,12 +137,21 @@ public class SlicePanel extends JPanel {
  
 
 	public void fillColors(iPresentGrid pGrid) {
+//		int iCount = 0;
+//		for (StoneColor iColor : pGrid.getColorsFromDim(mDim)) {
+//			int[] lRGB = iColor.getRGB();
+//			mColor[iCount++].setBackground(new Color(lRGB[0], lRGB[1], lRGB[2])); 
+//		}
+//		this.revalidate();
+	}
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
 		int iCount = 0;
-		for (StoneColor iColor : pGrid.getColorsFromDim(mDim)) {
+		for (StoneColor iColor : mGrid.getColorsFromDim(mDim)) {
 			int[] lRGB = iColor.getRGB();
 			mColor[iCount++].setBackground(new Color(lRGB[0], lRGB[1], lRGB[2])); 
 		}
-		this.revalidate();
-	}
+//		this.revalidate();
+    } 
 
 }
